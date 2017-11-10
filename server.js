@@ -50,12 +50,10 @@ app.use(passport.session()) // will call the deserializeUser
 
 // Send every request to the React app
 // Define any API routes before this runs
-// app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
 app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/build/index.html");
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
 
 app.get("/users/all", function(req, res) {
       console.log("route being called for get users")
