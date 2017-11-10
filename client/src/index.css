@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Russo One', sans-serif;
+  background-color: #050408;
+}
+img {
+	object-fit: contain
+}
