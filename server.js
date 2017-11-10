@@ -11,7 +11,7 @@ require('dotenv').config()
 const passport = require('./passport/index.js')
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("build"));
 }
 
 var db = require("./models");
@@ -21,7 +21,7 @@ var db = require("./models");
 app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static("public"));
+app.use(express.static("build"));
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/tetrix";
 console.log("This is mondo uri", MONGODB_URI)
@@ -54,7 +54,7 @@ app.use(passport.session()) // will call the deserializeUser
 //   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 // });
 app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/build/static/index.html");
+  res.sendFile(__dirname + "/build/index.html");
 });
 
 app.get("/users/all", function(req, res) {
